@@ -1,0 +1,611 @@
+﻿/* ==================== RESET / BODY ====================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* =================== TOPBAR ===================*/
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff1900 0%, #dc143c 100%);
+    color: white;
+    border-bottom: 4px solid #ffd700;
+    box-shadow: 0px 6px 16px rgba(255, 25, 0, 0.25);
+    animation: topbarGlow 0.6s ease;
+}
+
+@keyframes topbarGlow {
+    from { box-shadow: 0px 2px 8px rgba(255, 25, 0, 0.15); }
+    to   { box-shadow: 0px 6px 16px rgba(255, 25, 0, 0.25); }
+}
+
+.topbar span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.phones {
+    margin-left: auto;
+    display: flex;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.18);
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.phones:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #ffd700;
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.3);
+}
+
+.phones a {
+    text-decoration: none;
+    color: #ffd700;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.phones a::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.phones a:hover {
+    background: rgba(255, 215, 0, 0.25);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.phones a:hover::before { width: 100%; }
+
+/* =============== NAVBAR (Bootstrap cuida do layout, aqui só identidade visual) ================*/
+.menu-link {
+    color: #333 !important;
+    font-weight: 600;
+    padding: 8px 10px !important;
+    border-radius: 6px;
+    transition: color .2s, background .2s;
+}
+
+.menu-link:hover {
+    color: #dc143c !important;
+    background-color: #fff1f3;
+}
+
+/* ===================== HERO ================================*/
+#inicio {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.hero-card {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 520px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+    transform: scale(1.02);
+    transition: transform .6s ease, filter .6s ease;
+}
+
+.hero-card:hover .hero-img {
+    transform: scale(1.05);
+    filter: blur(1.4px);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 760px);
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.36);
+    border-radius: 12px;
+    padding: 20px 24px;
+}
+
+.hero-subtitle {
+    font-size: 0.95rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #ffe066;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    margin-bottom: 18px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: rgba(255, 215, 0, 0.92);
+    color: #900;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 7px 18px rgba(0,0,0,.22);
+    transition: transform .2s ease, background .2s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    background: #ffd700;
+}
+
+/* =============================== INFO CARDS (Ambulâncias / Equipe / Frota) =====================*/
+/* Renomeado de .card para .info-card para não conflitar com Bootstrap */
+.info-card {
+    text-decoration: none;
+    color: #333;
+    padding: 20px 16px;
+    border-radius: 14px;
+    background: #ffffff;
+    display: block;
+    transition: all .3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, #ff1900, #ffd700);
+    transition: left .4s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(255, 25, 0, 0.2);
+    border-color: #ffd700;
+}
+
+.info-card:hover::before { left: 100%; }
+
+/* Wrapper com altura fixa — evita que o Bootstrap sobrescreva o height da img */
+.info-card-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.info-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease, filter .4s ease;
+}
+
+.info-card:hover .info-card-img img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+.info-card h3 {
+    margin-top: 12px;
+    color: #dc143c;
+    font-size: 1.3rem;
+    transition: color .3s ease;
+}
+
+.info-card p {
+    color: #666;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    transition: color .3s ease;
+}
+
+.info-card:hover h3 { color: #ff1900; }
+.info-card:hover p  { color: #333; }
+
+/* ===================== SEÇÃO SOBRE ================================*/
+.sobre {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#equipe {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#equipe h2 {
+    font-size: 2.5rem;
+    color: #dc143c;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    animation: slideInDown 0.6s ease;
+}
+
+@keyframes slideInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+#equipe h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 4px;
+    background: linear-gradient(90deg, #ff1900, #ffd700);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+#equipe:hover h2::after { width: 120px; }
+
+/* ============================= SEÇÃO SERVIÇOS ============================================*/
+.servicos {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 42px 32px;
+}
+
+.servicos-topo {
+    max-width: 720px;
+    margin-bottom: 24px;
+}
+
+.tag-servicos {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    border-radius: 999px;
+    background: #fff1f3;
+    color: #c1123f;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.servicos h2 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 10px;
+    position: relative;
+    font-weight: 800;
+}
+
+.servicos h2::before {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -8px;
+    width: 56px; height: 3px;
+    background: #dc143c;
+    border-radius: 999px;
+}
+
+.servicos-topo p {
+    margin-top: 18px;
+    color: #5b6472;
+    line-height: 1.6;
+}
+
+/* Bootstrap row g-3 substitui o display:grid aqui */
+
+.card-servico {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 22px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid #e8ecf3;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-servico:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.10);
+    border-color: rgba(220, 20, 60, 0.28);
+}
+
+.icone-servico {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: #fff1f3;
+    color: #dc143c;
+    font-size: 1.25rem;
+}
+
+.card-servico h3 {
+    font-size: 1.12rem;
+    color: #1f2937;
+}
+
+.card-servico p {
+    color: #5b6472;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.card-servico a {
+    margin-top: auto;
+    text-decoration: none;
+    color: #c1123f;
+    font-weight: 700;
+    padding: 10px 0 2px;
+    position: relative;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.card-servico a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 2px;
+    background: currentColor;
+    opacity: 0.22;
+    transition: opacity 0.2s ease;
+}
+
+.card-servico a:hover {
+    color: #ff1900;
+    transform: translateX(2px);
+}
+
+.card-servico a:hover::after { opacity: 0.5; }
+
+/* Bootstrap d-flex no HTML substitui o display:grid aqui */
+.card-orcamento {
+    margin-top: 18px;
+    padding: 22px 24px;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+    border: 1px solid #f2d6dc;
+    border-radius: 18px;
+}
+
+.card-orcamento p {
+    margin: 0;
+    color: #374151;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.card-orcamento a {
+    text-decoration: none;
+    background: #dc143c;
+    color: #fff;
+    padding: 11px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-orcamento a:hover {
+    background: #ff1900;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(220, 20, 60, 0.18);
+}
+
+/* ============================= SEÇÃO CONTATO ============================================*/
+.secao-contato {
+    padding: 72px 20px;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef3f8 100%);
+}
+
+/* Bootstrap row no HTML substitui o display:grid do .contato-grid */
+
+.contato-form,
+.contato-info {
+    background: #ffffff;
+    border: 1px solid #e7ecf3;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.contato-form:hover,
+.contato-info:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    border-color: rgba(220, 20, 60, 0.18);
+}
+
+.contato-form h2 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    border: 1px solid #dbe3ec;
+    background: #f9fbfd;
+    color: #1f2937;
+    padding: 14px 15px;
+    border-radius: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.formulario textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+    border-color: rgba(220, 20, 60, 0.45);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.08);
+}
+
+.formulario button {
+    align-self: flex-start;
+    border: none;
+    background: linear-gradient(135deg, #dc143c 0%, #ff1900 100%);
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.formulario button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(220, 20, 60, 0.18);
+    filter: saturate(1.05);
+}
+
+.contato-info {
+    background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+}
+
+.contato-info h3 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+/* ============================= BOTÃO WHATSAPP FIXO ============================================*/
+.btn-wpp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px; height: 52px;
+    background-color: #25d366;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #f8f8f8;
+    position: fixed;
+    bottom: 24px; right: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    z-index: 999;
+}
+
+.btn-wpp:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+    color: #fff;
+}
+
+/* ============================= FOOTER ============================================*/
+.footer {
+    background-color: #1f2937;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+/* ============================= AJUSTES VISUAIS MOBILE ============================================*/
+/* Bootstrap cuida das colunas. Aqui só ajustes visuais finos */
+
+@media (max-width: 768px) {
+    .hero-card {
+        height: 60vh;
+        min-height: 420px;
+    }
+
+    .hero-overlay {
+        width: min(92%, 720px);
+        padding: 18px 20px;
+    }
+
+    .info-card img {
+        height: 180px;
+    }
+
+    .servicos {
+        padding: 32px 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .topbar {
+        justify-content: center;
+    }
+
+    .phones {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contato-form,
+    .contato-info {
+        padding: 20px 16px;
+    }
+
+    .contato-form h2 {
+        font-size: 1.7rem;
+    }
+
+    .formulario button {
+        width: 100%;
+    }
+
+    .card-orcamento a {
+        width: 100%;
+        text-align: center;
+    }
+}
