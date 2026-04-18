@@ -8,18 +8,19 @@ No trabalho dessa semana vamos alterar o projeto para que a responsividade da ho
 
 ## Informações Gerais
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome:Jose Victor Uliana
+- Matricula: 916777
+- Proposta de projeto escolhida: Proposta de projeto escolhida: Proposta 3 - organizacao equipes 
+- Breve descrição sobre seu projeto: Site institucional da Alpha Vida, especializada em transporte médico de urgência e emergência.
 
 ## Print da versão responsiva com Bootstrap [DESKTOP]
 
-<<  COLOQUE A IMAGEM AQUI >>
+![Desktop layout](Desktop.png)
+
 
 ## Print da versão responsiva com Bootstrap [MOBILE] (*)
 
-<<  COLOQUE A IMAGEM AQUI >>
+![Desktop layout](MOBILE.png)
 
 
 (*) Utilize as ferramentas do desenvolvedor do seu navegador para colocar no modo reponsivo, escolha um celular qualquer e recarregue a página antes de tirar o print. 
